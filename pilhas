@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+#define tamanho 3 
+
+// PILHAS LINGUAGEM C 
+
+ struct tipo_pilha{ //declaração da estrutura do tipo pilha
+     int dados[tamanho]; 
+     int ini; 
+     int topo; 
+}; 
+ struct tipo_pilha pilha; // nao basta declarar a struct tipo pilha 
+                          // é necessario criar uma variavel tambem
+
+void empilha(int elemento ){ // a função empilha(PUSH) recebe o elemento a ser empilhado como parametro
+	if(pilha.topo == tamanho){ // acessar a variavel pilha.topo se for == a constante tamanho então.
+		printf("fila cheia.\n");// prinft(fila cheia)
+		system("pause");
+	}
+	else // se não
+	{
+		pilha.dados[pilha.topo] = elemento;// a variavel pilha.dados recebe (indice pilha.topo) recebe o elemento
+		// empilha o elemento 
+		pilha.topo++;// pilha.topo ++  incrementa o topo
+		}
+	}
+	
+int desempilha(){ // a função desempilha(pop) decrementa o topo. essa função vai ser invocada por alguem e esse algeum quer saber quem esta no topo
+	int elemento;// o elemento a ser desempilhado e retornar a fução a quem tiver invocada essa função
+	if(pilha.topo == pilha.ini){//compara o topo com o inicio se o topo estiver vazio entao.
+		printf("fila vazia.\n");// 
+		system("pause");
+	}
+
+else // se não se pilha topo não for igual ao inicio este topo vai ser maior que o inicio
+{
+	pilha.topo--; // decrementar o topo pilha.topo --
+	elemento = pilha.dados[pilha.topo];// e salva o elemento a ser desempilhado
+	//pilha.dados indice[pilha.topo] recebe o elemento decrementado
+	return elemento;     // e retorna o elemento          
+	
+}
+}
+
+
+	
