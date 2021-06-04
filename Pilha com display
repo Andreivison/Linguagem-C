@@ -1,0 +1,85 @@
+//Bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+//Constantes
+#define tamanho 10
+//Estrutura da Pilha
+	struct tpilha {
+int dados[tamanho];
+int ini;
+int fim;	
+};
+
+    //Variáveis globais
+	struct tpilha pilha;   //É necessario criar a variavél da struct tpilha com o o nome de (pilha) para chamar a mesma mais a frente.   
+	int op;                // variavél navegadora   
+	
+	//Protipação
+void pilha_entrar();
+void pilha_sair();
+void pilha_mostrar();
+void menu_mostrar();
+   //Função principal INICIO DA CODIFICAÇÃO
+int main(){
+setlocale(LC_ALL, "Portuguese"); //função para configurar o idioma para português
+	op = 1;
+	pilha.ini = 0;
+	pilha.fim = 0;
+while (op != 0) {                 // DISPLAY utilizando a estrutura de repetição while
+		system("cls");            //lIMPAR TELA
+		pilha_mostrar();		//CORPO DA ESTRUTURA
+		menu_mostrar();
+		scanf("%d", &op);          
+	switch (op) {				// CASO OP
+case 1:							//CASO APERTE 1 INICIE A FUNÇÃO EMPILHAR(Pilha_entrar)
+pilha_entrar();
+	break;
+case 2:							//CASO APERTE 2 INICIE A FUNÇÃO DESEMPILHAR(Pilha_sair)
+pilha_sair();
+	break; 
+}
+}
+	return(0);
+}
+
+//Mostrar o menu de opções
+void menu_mostrar() {                                //MENU
+	printf("\nEscolha uma opção:\n");
+printf("1 - Empilhar\n");
+printf("2 - Desempilhar\n");
+printf("0 - Sair\n\n");
+}
+
+//Adicionar um elemento no final da Pilha     ( EMPILHAR PUSH )
+void pilha_entrar(){														//CRIAÇÃO DA FUNÇÃO ENTRAR COM UM ELEMENTO
+	if (pilha.fim == tamanho) {                                           //CASO A PILHA.FIM SEJA = AO TAMANHO DA CONSTANTE(10)ENTÃO 
+printf("\nA pilha está cheia, impossível empilhar!\n\n");                // INDIQUE A MENSAGEM 
+system("pause");
+}
+	else {																//CASO AO CONTRARIO
+printf("\nDigite o valor a ser empilhado: ");
+scanf("%d", &pilha.dados[pilha.fim]);								 //LEIA O VALOR A SER INCREMENTADO SALVE EM PILHA.DADOS[PILHA.FIM]
+pilha.fim++;														// ACRECENTE PILHA.FIM++ OU SEJA A CADA NOVO DADO SALVO EM PILHA DE DADOS[PILHA.FIM] RECEBE +1
+}
+}
+//Retirar o último elemento da Pilha     ( DESEMPILHAR POP )
+void pilha_sair() {                    
+	if (pilha.ini == pilha.fim) {										//SE PILHA.INI FOR IGUAL A PILHA.FIM ENTÃO 
+printf("\nA pilha está vazia, impossível desempilhar!\n\n");		  //A PILHA ESTA VAZIA NÃO A O QUE DESEMPILHAR
+system("pause");
+}
+	else {            											   	// CASO AO CONTRARIO ! (ELSE) SE NÃO 
+pilha.dados[pilha.fim-1] = 0;									  //  É NECESSARIO DECREMENTAR.. OU SEJA PILHA.DADOS[PILHA.FIM-1] =0;
+pilha.fim--;                                                    // PILHA.FIM -1 ATÉ SER = A 0;
+}
+}
+//Mostrar o conteúdo da Pilha							// O CONTEUDO É MOSTRADO ATRAVEZ DA ESTRUTURA DE REPETIÇÃO FOR
+void pilha_mostrar() {								  // É CRIADA A FUNÇÃO
+	int i;                                          // É CRIADO O INDICE QUE VAI NAVEGAR PELO FOR
+printf("[ ");                                       
+	for (i = 0; i < tamanho; i++) {              // INICIA A ESTRUTURA COM SE(I FOR = O; RECEBE TAMANHO; I ACRECENTA +1 A CADA VOLTA NA ESTRUTURA DE REPETIÇÃO
+printf("%d ", pilha.dados[i]);					// A PILHA.DADOS VAI ACUMULAR ESSA ESTRUTURA DE REPETIÇÃO[I]
+}
+printf("]\n\n");
+}
