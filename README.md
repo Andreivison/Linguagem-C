@@ -1,2 +1,2 @@
-# Linguagem-C
+# Python
 Estudos 
